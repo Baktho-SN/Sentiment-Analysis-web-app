@@ -71,4 +71,4 @@ uvicorn main:app --reload
 
 ### Demo
 
-![Demo.GIF](markdown/Demo.mp4)
+![Demo.GIF](markdown/DEMO.webp)
