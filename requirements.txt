@@ -13,3 +13,7 @@ scipy
 seaborn
 yellowbrick
 xgboost
+emoji
+textblob
+nltk
+re
