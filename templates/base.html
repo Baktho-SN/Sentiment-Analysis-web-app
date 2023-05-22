@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Sentiment Analysis</title>
+	<link
+
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+
+    />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link
+
+      rel="icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzCxPo7psr0siEBv02wIaHpaGpKGuVGSI-fw&usqp=CAU"
+
+    />
+    
+  <style>
+
+    body { 
+    	position:relative;
+     }
+
+    a {color: black}
+
+    h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		p,
+		span{
+  		font-family: "Montserrat", sans-serif;
+  		text-align: center;
+		}
+
+    #mainNav {background-color: whitesmoke; padding:15px} 
+
+ 	 	#header {padding-top:120px;padding-bottom:40px;height:550px;	background-color: rgb(91 33 182);}
+
+  	#predictor {padding-top:70px;padding-bottom:70px;background-color:white}
+
+  	#footer {padding-top:30px; 	background-color: rgb(124 58 237);}
+
+  	#container-fluid {
+  		max-width: 1000px;
+  		margin: auto;
+  		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22	);
+  		background-color: whitesmoke;
+  		border-radius: 16px;
+  		margin-top: 30px;
+  		margin-bottom: 30px;
+  		padding-left: 30px;
+  		padding-right: 30px
+		}
+
+		#submit {
+  		margin-top: 20px;
+  		background-color: rgb(124 58 237);
+  		border-radius: 5px;
+  		border: 0;
+  		color: black;
+		}
+
+		#results {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+  </style>
+    	
+</head>
+
+<body data-spy="scroll" data-target="mainNav"  id="page-top">
+
+	<nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+		<div class="container-fluid">
+
+				<a class="navbar-brand text-black" href="#page-top">Sentiment analysis</a>
+			<button class="navbar-toggler text-uppercase font-weight-bold bg-secondary text-white rounded" 
+			 	type="btn" 
+			 	data-bs-toggle="collapse" 
+			 	data-bs-target="#navbarResponsive" 
+			 	aria-controls="navbarResponsive" 
+			 	aria-expanded="false" 
+			 	aria-label="Toggle navigation">
+       	Menu
+       	<i class="fas fa-bars"></i>
+       </button>
+
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+
+				<ul class="nav navbar-nav page-top">
+          <li class="nav-item"><a class="nav-link py-3 px-lg-3" href="#predictor">Prediction</a></li>
+          <li class="nav-item"><a class="nav-link py-3 x-lg-3" href="#results">Results</a></li>
+  	    </ul>
+
+			</div>
+		</div>
+	</nav>
+	
+
+	<header class="masthead text-white text-center" id="header">
+
+		<div class="container d-flex align-items-center flex-column">
+
+			<img 
+				class="masthead-avatar mb-5" 
+				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz7eopWNSR6sApTojsi_MsOEMe21AgAREnNvzv4gT-Xl_VRihiPuETjk8fKzONmyMfSts&usqp=CAU" 
+				alt="..."/>
+			<h1 class="masthead-heading text-uppercase mb-0">Hotel Reviews Analysis</h1>
+			<hr style="width:50%">
+			<p class="masthead-subheading font-weight-light mb-0">This is a Machine Learning Web App, Built using FastAPI and deployed using Render </p>
+
+		</div>
+
+	</header>
+
+
+	<section class="page-section text-black mb-0" id="predictor">
+
+		<div id = "container-fluid">
+			<h2 class="page-section-heading text-center text-uppercase mb-0">Predictor</h2>
+			<hr style="width:50%">
+			<div class="row justify-content-center">
+					<form action = "/predict" method = "post">
+						<div class="flex: 6">
+
+							<textarea 
+								class="form-control"
+								name="review"	
+								rows="10"
+								cols="100"
+								placeholder="Enter Your Review" 
+							></textarea>
+
+							<input type="submit" id="submit" class="btn" value="Predict">
+
+							<div id=results>
+								<h3>Results:</h3>
+								<hr style="width:50%">
+								<p>
+									Predicted Status : {{prediction}}
+									{{custom_emoji}}
+								</p>
+
+								<p class="font-weight-light mb-0">Hope you didn't use any sarcasm on me, i wasn't trained to handle it :) <p>
+							</div>
+							
+						</div>
+					</form>
+			</div>
+		</div>
+
+	</section>
+
+
+	
+	<footer class="footer text-center" id="footer">
+
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="footer-col col-md-4">
+					<h3>Take a look!</h3>
+        	<div class="contact">
+          	<a
+          	  target="_blank"
+          	  href="https://github.com/Baktho-SN"
+          	>
+          	<i class="fab fa-github fa-lg contact-icon"></i></a>
+
+        	  <a 
+        	  	target="_blank" 
+        	  	href="https://www.linkedin.com/in/baktho-s-n-435742234/"
+          	>
+          	<i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+
+        	</div>
+        	<hr style="width:50%">
+
+        	<p class="footer-description">Follow me for more projects like these! ;)</p>
+
+      	</div>
+			</div>
+		</div>
+
+	</footer>	
+
+</body>
+</html>
