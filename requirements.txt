@@ -16,4 +16,4 @@ xgboost
 emoji
 textblob
 nltk
-re
+regex
