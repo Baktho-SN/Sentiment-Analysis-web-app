@@ -1,5 +1,5 @@
 # Sentiment-Analysis-web-app
-Sentiment Analysis hotel review app is used to sentiment(Positive/negative) of the review left by the customer. Created using python's scikit-learn, nltk, Fastapi, numpy and joblib packages.
+Sentiment Analysis hotel review app is used to predict the sentiment(Positive/negative) of the review left by the customer. Created using python's scikit-learn, nltk, Fastapi, numpy and joblib packages.
 
 ![python 3.11.0](https://img.shields.io/badge/Python-blue.svg)
 ![html](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
